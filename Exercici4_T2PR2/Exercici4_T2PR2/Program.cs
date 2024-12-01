@@ -2,6 +2,14 @@
 
 class Program
 {
+    public static double RectangleArea(double height, double width)
+    {
+        return height * width;
+    }
+    public static double CircleCircumference(double radius)
+    {
+        return 2 * Math.PI * radius;
+    }
     static void Main(string[] args)
     {
         const string MsgWidth = "Introdueix l'amplada del rectangle:";
@@ -29,13 +37,13 @@ class Program
         height = Convert.ToDouble(Console.ReadLine());
 
         // Calcula l'àrea
-        area = width * height;
+        area = RectangleArea(height, width);
         Console.WriteLine($"{MsgAreaRect}{area}");
 
         // Sol·licita l'entrada de l'usuari per calcular la circumferència d'un cercle
         Console.WriteLine(MsgRadius);
         radius = Convert.ToDouble(Console.ReadLine());
-        circumference = 2 * Math.PI * radius;
+        circumference = CircleCircumference(radius);
         Console.WriteLine($"{MsgCircum}{circumference}");
 
         // Imprimeix un missatge basat en el valor de l'àrea
