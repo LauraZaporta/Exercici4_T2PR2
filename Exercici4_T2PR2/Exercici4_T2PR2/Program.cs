@@ -1,5 +1,4 @@
 ﻿using System;
-
 class Program
 {
     public static double RectangleArea(double height, double width)
@@ -33,11 +32,11 @@ class Program
         double radius = 0;
         double circumference;
 
+        // Àrea rectangle
         do
         {
             try
             {
-                // Sol·licita l'entrada de l'usuari per calcular l'àrea d'un rectangle
                 Console.WriteLine(MsgWidth);
                 width = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine(MsgHeight);
@@ -55,15 +54,14 @@ class Program
                 validInput = false;
             }
         } while (!validInput);
-        // Calcula l'àrea
         area = RectangleArea(height, width);
         Console.WriteLine($"{MsgAreaRect}{area}");
 
+        // Circumferència cercle
         do
         {
             try
             {
-                // Sol·licita l'entrada de l'usuari per calcular la circumferència d'un cercle
                 Console.WriteLine(MsgRadius);
                 radius = Convert.ToDouble(Console.ReadLine());
                 validInput = true;
