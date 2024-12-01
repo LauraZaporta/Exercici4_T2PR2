@@ -1,14 +1,8 @@
 ﻿using System;
+using LlibreriaEx4_T2PR2;
+
 class Program
 {
-    public static double RectangleArea(double height, double width)
-    {
-        return height * width;
-    }
-    public static double CircleCircumference(double radius)
-    {
-        return 2 * Math.PI * radius;
-    }
     static void Main(string[] args)
     {
         const string MsgWidth = "Introdueix l'amplada del rectangle:";
@@ -54,7 +48,7 @@ class Program
                 validInput = false;
             }
         } while (!validInput);
-        area = RectangleArea(height, width);
+        area = Calculator.RectangleArea(height, width);
         Console.WriteLine($"{MsgAreaRect}{area}");
 
         // Circumferència cercle
@@ -77,7 +71,7 @@ class Program
                 validInput = false;
             }
         } while (!validInput);
-        circumference = CircleCircumference(radius);
+        circumference = Calculator.CircleCircumference(radius);
         Console.WriteLine($"{MsgCircum}{circumference}");
 
         // Imprimeix un missatge basat en el valor de l'àrea
