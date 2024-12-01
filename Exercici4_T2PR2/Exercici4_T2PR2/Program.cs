@@ -21,28 +21,64 @@ class Program
         const string MsgAreaBetweenOne = "L'àrea està entre els valors ";
         const string MsgAreaBetweenTwo = "i ";
         const string MsgLittleArea = "L'àrea és menor o igual a ";
+        const string FormatError = "Format incorrecte. Torna-ho a intentar.";
+        const string OverflowError = "Valor massa gran. Torna-ho a intentar.";
         const int ValueOneArea = 50;
         const int ValueTwoArea = 20;
 
+        bool validInput;
         double width = 0;
         double height = 0;
         double area;
         double radius = 0;
         double circumference;
 
-        // Sol·licita l'entrada de l'usuari per calcular l'àrea d'un rectangle
-        Console.WriteLine(MsgWidth);
-        width = Convert.ToDouble(Console.ReadLine());
-        Console.WriteLine(MsgHeight);
-        height = Convert.ToDouble(Console.ReadLine());
-
+        do
+        {
+            try
+            {
+                // Sol·licita l'entrada de l'usuari per calcular l'àrea d'un rectangle
+                Console.WriteLine(MsgWidth);
+                width = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine(MsgHeight);
+                height = Convert.ToDouble(Console.ReadLine());
+                validInput = true;
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine(FormatError);
+                validInput = false;
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine(OverflowError);
+                validInput = false;
+            }
+        } while (!validInput);
         // Calcula l'àrea
         area = RectangleArea(height, width);
         Console.WriteLine($"{MsgAreaRect}{area}");
 
-        // Sol·licita l'entrada de l'usuari per calcular la circumferència d'un cercle
-        Console.WriteLine(MsgRadius);
-        radius = Convert.ToDouble(Console.ReadLine());
+        do
+        {
+            try
+            {
+                // Sol·licita l'entrada de l'usuari per calcular la circumferència d'un cercle
+                Console.WriteLine(MsgRadius);
+                radius = Convert.ToDouble(Console.ReadLine());
+                validInput = true;
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine(FormatError);
+                validInput = false;
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine(OverflowError);
+                validInput = false;
+            }
+        } while (!validInput);
         circumference = CircleCircumference(radius);
         Console.WriteLine($"{MsgCircum}{circumference}");
 
